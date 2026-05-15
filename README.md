@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="branding/dtsu666_meter.svg" alt="DTSU666 Meter" width="120" height="120">
+</p>
+
 # DTSU666 Energy Meter — Home Assistant integration (Modbus TCP)
 
 Home Assistant integration that reads a **CHINT DTSU666 / DTSU666-H** three-phase
@@ -93,6 +97,16 @@ logger:
   logs:
     custom_components.dtsu666_meter: debug
 ```
+
+## Icon
+
+Home Assistant / HACS pull the integration icon from the central
+[`home-assistant/brands`](https://github.com/home-assistant/brands) repo, **not
+from this repository** — so a generic placeholder is shown until a brand is
+accepted there. See [`branding/README.md`](branding/README.md) for the exact
+image specs and the submission steps (and the note on using the CHINT
+trademark). The mark in this README is an original placeholder, not the CHINT
+logo.
 
 ## License
 
