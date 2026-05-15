@@ -24,8 +24,14 @@ ready for the Home Assistant **Energy Dashboard**.
 4. Enter host / port / slave ID / polling interval. Connection is validated
    before the entry is created.
 
-Defaults: port `502`, slave ID `4`, scan interval `10 s`. The scan interval can
+Defaults: port `502`, slave ID `4`, scan interval `1 s`. The scan interval
+accepts decimals and can go as low as **0.2 s (200 ms)** (max `600 s`); it can
 be changed later via the integration's **Configure** (options) button.
+
+> Very low intervals only make sense over direct/fast Modbus TCP. Behind a
+> 9600-baud RS485-to-TCP gateway one full read cycle (4 register blocks) takes
+> longer than 200 ms, so the effective rate is capped by the link, not the
+> setting — a too-aggressive interval just queues reads.
 
 ### B) YAML package (no Python, built-in `modbus`)
 

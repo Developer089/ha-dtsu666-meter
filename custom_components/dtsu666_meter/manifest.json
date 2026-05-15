@@ -1,7 +1,7 @@
 {
   "domain": "dtsu666_meter",
   "name": "DTSU666 Energy Meter (Modbus TCP)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "codeowners": ["@Developer089"],
   "config_flow": true,
   "documentation": "https://github.com/Developer089/ha-dtsu666-meter",

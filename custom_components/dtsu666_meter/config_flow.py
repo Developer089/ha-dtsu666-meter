@@ -64,7 +64,10 @@ def _user_schema() -> vol.Schema:
             vol.Required(CONF_SLAVE_ID, default=DEFAULT_SLAVE_ID): int,
             vol.Required(
                 CONF_SCAN_INTERVAL, default=DEFAULT_SCAN_INTERVAL
-            ): vol.All(int, vol.Range(min=MIN_SCAN_INTERVAL, max=MAX_SCAN_INTERVAL)),
+            ): vol.All(
+                vol.Coerce(float),
+                vol.Range(min=MIN_SCAN_INTERVAL, max=MAX_SCAN_INTERVAL),
+            ),
         }
     )
 
@@ -130,7 +133,8 @@ class Dtsu666OptionsFlow(OptionsFlow):
                     vol.Required(
                         CONF_SCAN_INTERVAL, default=current
                     ): vol.All(
-                        int, vol.Range(min=MIN_SCAN_INTERVAL, max=MAX_SCAN_INTERVAL)
+                        vol.Coerce(float),
+                        vol.Range(min=MIN_SCAN_INTERVAL, max=MAX_SCAN_INTERVAL),
                     )
                 }
             ),

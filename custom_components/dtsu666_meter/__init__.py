@@ -14,9 +14,9 @@ PLATFORMS: list[Platform] = [Platform.SENSOR]
 type Dtsu666ConfigEntry = ConfigEntry[Dtsu666Coordinator]
 
 
-def _scan_interval(entry: Dtsu666ConfigEntry) -> int:
-    """Options override data; fall back to the default."""
-    return int(
+def _scan_interval(entry: Dtsu666ConfigEntry) -> float:
+    """Options override data; fall back to the default. May be sub-second."""
+    return float(
         entry.options.get(
             CONF_SCAN_INTERVAL,
             entry.data.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL),

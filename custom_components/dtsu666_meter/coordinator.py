@@ -39,7 +39,7 @@ class Dtsu666Coordinator(DataUpdateCoordinator[dict[str, float]]):
         host: str,
         port: int,
         slave_id: int,
-        scan_interval: int,
+        scan_interval: float,
     ) -> None:
         super().__init__(
             hass,

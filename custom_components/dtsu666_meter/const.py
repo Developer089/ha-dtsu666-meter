@@ -20,9 +20,9 @@ CONF_SLAVE_ID = "slave_id"
 
 DEFAULT_PORT = 502
 DEFAULT_SLAVE_ID = 4          # common DTSU666 default; configurable in the UI
-DEFAULT_SCAN_INTERVAL = 10    # seconds
-MIN_SCAN_INTERVAL = 2
-MAX_SCAN_INTERVAL = 600
+DEFAULT_SCAN_INTERVAL = 1.0   # seconds (float — sub-second is allowed)
+MIN_SCAN_INTERVAL = 0.2       # 200 ms
+MAX_SCAN_INTERVAL = 600.0
 
 MANUFACTURER = "CHINT"
 MODEL = "DTSU666"
