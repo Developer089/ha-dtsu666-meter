@@ -1,0 +1,65 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "DTSU666 Modbus TCP",
+        "description": "Connect to a CHINT DTSU666 energy meter exposed over Modbus TCP (directly or via an RS485-to-TCP gateway).",
+        "data": {
+          "host": "Host / IP address",
+          "port": "TCP port",
+          "slave_id": "Modbus slave / unit ID",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to the meter. Check host, port and slave ID.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This meter is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DTSU666 options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "voltage_l1_l2": { "name": "Voltage L1-L2" },
+      "voltage_l2_l3": { "name": "Voltage L2-L3" },
+      "voltage_l3_l1": { "name": "Voltage L3-L1" },
+      "voltage_l1": { "name": "Voltage L1" },
+      "voltage_l2": { "name": "Voltage L2" },
+      "voltage_l3": { "name": "Voltage L3" },
+      "current_l1": { "name": "Current L1" },
+      "current_l2": { "name": "Current L2" },
+      "current_l3": { "name": "Current L3" },
+      "active_power_total": { "name": "Active power total" },
+      "active_power_l1": { "name": "Active power L1" },
+      "active_power_l2": { "name": "Active power L2" },
+      "active_power_l3": { "name": "Active power L3" },
+      "reactive_power_total": { "name": "Reactive power total" },
+      "reactive_power_l1": { "name": "Reactive power L1" },
+      "reactive_power_l2": { "name": "Reactive power L2" },
+      "reactive_power_l3": { "name": "Reactive power L3" },
+      "apparent_power_total": { "name": "Apparent power total" },
+      "apparent_power_l1": { "name": "Apparent power L1" },
+      "apparent_power_l2": { "name": "Apparent power L2" },
+      "apparent_power_l3": { "name": "Apparent power L3" },
+      "power_factor_total": { "name": "Power factor total" },
+      "power_factor_l1": { "name": "Power factor L1" },
+      "power_factor_l2": { "name": "Power factor L2" },
+      "power_factor_l3": { "name": "Power factor L3" },
+      "frequency": { "name": "Frequency" },
+      "energy_import_total": { "name": "Energy imported" },
+      "energy_export_total": { "name": "Energy exported" }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Alternative WITHOUT the custom integration: Home Assistant's built-in `modbus`.
+# Drop this file in config/packages/ and add to configuration.yaml:
+#
+#   homeassistant:
+#     packages: !include_dir_named packages
+#
+# Adjust host / port / slave below. The custom_component is recommended (UI
+# config, graceful degradation); this is the zero-Python fallback.
+# Register map identical to the custom integration (FLOAT32, FC03, big-endian).
+# ─────────────────────────────────────────────────────────────────────────────
+
+modbus:
+  - name: dtsu666
+    type: tcp
+    host: 192.168.1.50   # <-- change to your meter / RS485-TCP gateway IP
+    port: 502
+    delay: 2
+    timeout: 5
+    sensors:
+      # ── Voltages (raw float ÷10) ──────────────────────────────────────────
+      - name: "DTSU666 Voltage L1-L2"
+        slave: 4
+        address: 0x2000
+        input_type: holding
+        data_type: float32
+        swap: false
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      - name: "DTSU666 Voltage L2-L3"
+        slave: 4
+        address: 0x2002
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      - name: "DTSU666 Voltage L3-L1"
+        slave: 4
+        address: 0x2004
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      - name: "DTSU666 Voltage L1"
+        slave: 4
+        address: 0x2006
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      - name: "DTSU666 Voltage L2"
+        slave: 4
+        address: 0x2008
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      - name: "DTSU666 Voltage L3"
+        slave: 4
+        address: 0x200A
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+      # ── Currents (raw float ÷1000) ────────────────────────────────────────
+      - name: "DTSU666 Current L1"
+        slave: 4
+        address: 0x200C
+        input_type: holding
+        data_type: float32
+        scale: 0.001
+        precision: 2
+        unit_of_measurement: A
+        device_class: current
+        state_class: measurement
+      - name: "DTSU666 Current L2"
+        slave: 4
+        address: 0x200E
+        input_type: holding
+        data_type: float32
+        scale: 0.001
+        precision: 2
+        unit_of_measurement: A
+        device_class: current
+        state_class: measurement
+      - name: "DTSU666 Current L3"
+        slave: 4
+        address: 0x2010
+        input_type: holding
+        data_type: float32
+        scale: 0.001
+        precision: 2
+        unit_of_measurement: A
+        device_class: current
+        state_class: measurement
+      # ── Active power (raw float ÷10, negative total = export) ──────────────
+      - name: "DTSU666 Active Power Total"
+        slave: 4
+        address: 0x2012
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+      - name: "DTSU666 Active Power L1"
+        slave: 4
+        address: 0x2014
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+      - name: "DTSU666 Active Power L2"
+        slave: 4
+        address: 0x2016
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+      - name: "DTSU666 Active Power L3"
+        slave: 4
+        address: 0x2018
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+      # ── Reactive power (raw float ÷10) ────────────────────────────────────
+      - name: "DTSU666 Reactive Power Total"
+        slave: 4
+        address: 0x201A
+        input_type: holding
+        data_type: float32
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: var
+        device_class: reactive_power
+        state_class: measurement
+      # ── Power factor (raw float ÷1000) ────────────────────────────────────
+      - name: "DTSU666 Power Factor Total"
+        slave: 4
+        address: 0x202A
+        input_type: holding
+        data_type: float32
+        scale: 0.001
+        precision: 3
+        device_class: power_factor
+        state_class: measurement
+      # ── Frequency (raw float ÷100) ────────────────────────────────────────
+      - name: "DTSU666 Frequency"
+        slave: 4
+        address: 0x2044
+        input_type: holding
+        data_type: float32
+        scale: 0.01
+        precision: 2
+        unit_of_measurement: Hz
+        device_class: frequency
+        state_class: measurement
+      # ── Energy counters (raw float already in kWh) ────────────────────────
+      - name: "DTSU666 Energy Imported"
+        slave: 4
+        address: 0x401E
+        input_type: holding
+        data_type: float32
+        scale: 1
+        precision: 2
+        unit_of_measurement: kWh
+        device_class: energy
+        state_class: total_increasing
+      - name: "DTSU666 Energy Exported"
+        slave: 4
+        address: 0x4028
+        input_type: holding
+        data_type: float32
+        scale: 1
+        precision: 2
+        unit_of_measurement: kWh
+        device_class: energy
+        state_class: total_increasing

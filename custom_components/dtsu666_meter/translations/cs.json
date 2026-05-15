@@ -1,0 +1,65 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "DTSU666 Modbus TCP",
+        "description": "Připojení k elektroměru CHINT DTSU666 přes Modbus TCP (přímo nebo přes RS485-TCP bránu).",
+        "data": {
+          "host": "Host / IP adresa",
+          "port": "TCP port",
+          "slave_id": "Modbus slave / unit ID",
+          "scan_interval": "Interval čtení (s)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nepodařilo se připojit k elektroměru. Zkontrolujte host, port a slave ID.",
+      "unknown": "Neočekávaná chyba"
+    },
+    "abort": {
+      "already_configured": "Tento elektroměr je už nakonfigurovaný"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Nastavení DTSU666",
+        "data": {
+          "scan_interval": "Interval čtení (s)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "voltage_l1_l2": { "name": "Napětí L1-L2" },
+      "voltage_l2_l3": { "name": "Napětí L2-L3" },
+      "voltage_l3_l1": { "name": "Napětí L3-L1" },
+      "voltage_l1": { "name": "Napětí L1" },
+      "voltage_l2": { "name": "Napětí L2" },
+      "voltage_l3": { "name": "Napětí L3" },
+      "current_l1": { "name": "Proud L1" },
+      "current_l2": { "name": "Proud L2" },
+      "current_l3": { "name": "Proud L3" },
+      "active_power_total": { "name": "Činný výkon celkem" },
+      "active_power_l1": { "name": "Činný výkon L1" },
+      "active_power_l2": { "name": "Činný výkon L2" },
+      "active_power_l3": { "name": "Činný výkon L3" },
+      "reactive_power_total": { "name": "Jalový výkon celkem" },
+      "reactive_power_l1": { "name": "Jalový výkon L1" },
+      "reactive_power_l2": { "name": "Jalový výkon L2" },
+      "reactive_power_l3": { "name": "Jalový výkon L3" },
+      "apparent_power_total": { "name": "Zdánlivý výkon celkem" },
+      "apparent_power_l1": { "name": "Zdánlivý výkon L1" },
+      "apparent_power_l2": { "name": "Zdánlivý výkon L2" },
+      "apparent_power_l3": { "name": "Zdánlivý výkon L3" },
+      "power_factor_total": { "name": "Účiník celkem" },
+      "power_factor_l1": { "name": "Účiník L1" },
+      "power_factor_l2": { "name": "Účiník L2" },
+      "power_factor_l3": { "name": "Účiník L3" },
+      "frequency": { "name": "Frekvence" },
+      "energy_import_total": { "name": "Spotřebovaná energie" },
+      "energy_export_total": { "name": "Dodaná energie" }
+    }
+  }
+}

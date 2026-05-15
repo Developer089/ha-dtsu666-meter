@@ -1,0 +1,13 @@
+{
+  "domain": "dtsu666_meter",
+  "name": "DTSU666 Energy Meter (Modbus TCP)",
+  "version": "1.0.0",
+  "codeowners": ["@Developer089"],
+  "config_flow": true,
+  "documentation": "https://github.com/Developer089/ha-dtsu666-meter",
+  "issue_tracker": "https://github.com/Developer089/ha-dtsu666-meter/issues",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": ["pymodbus>=3.9,<3.12"],
+  "dependencies": []
+}

@@ -1,0 +1,4 @@
+# Keep LF in the repo for all text/source files (HA/Python convention)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
